@@ -1,0 +1,21 @@
+<hello name="{{ name }}"></hello>
+<div #el style="height: 400px; overflow: scroll">
+    <div>
+        <ng-container
+                *virtualScroll="let item of list; container: el" style="height:30px"
+                [ngTemplateOutlet]="item.value % 2 === 0 ? even : odd"
+                [ngTemplateOutletContext]="{ $implicit: item.value }"
+        >
+        </ng-container>
+    </div>
+</div>
+<ng-template #even let-item
+>
+    <div>even{{ item }}</div>
+</ng-template
+>
+<ng-template #odd let-item
+>
+    <div>odd{{ item }}</div>
+</ng-template
+>
